@@ -4,7 +4,7 @@ import mongooseUniqueValidator from "mongoose-unique-validator";
 
 
 const shirtSchema = mongoose.Schema({
-    colors: {type: String, required: true },
+    colors: [{type: String, required: true }],
     frontDesigns: {type: String, required: true },
     backDesign: {type: String, required: false }, // future implementation
     sizes: [{type: String, required: true }],
@@ -15,4 +15,4 @@ const shirtSchema = mongoose.Schema({
 
 shirtSchema.plugin(mongooseUniqueValidator)
 
-export default mongoose.model('Shirts', shirtSchema)
+export default mongoose.model('Shirt', shirtSchema)
