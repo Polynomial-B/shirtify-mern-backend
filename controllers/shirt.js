@@ -12,8 +12,6 @@ router.get("/", async (_req, res, next) => {
   }
 });
 
-// ! to add --- secureRoute
-
 router.get("/design", async (_req, res, next) => {
   try {
     const shirts = await Shirts.find();
