@@ -16,4 +16,3 @@ const shirtSchema = mongoose.Schema({
 shirtSchema.plugin(mongooseUniqueValidator)
 
 export default mongoose.model('Shirt', shirtSchema)
- 
