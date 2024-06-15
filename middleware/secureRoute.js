@@ -1,28 +1,24 @@
-import { Unauthorised } from "../lib/errors.js";
+
+import { Unauthorized } from "../lib/customErrors.js";
 import jwt from "jsonwebtoken";
-import { secret } from "../config/environment.js";
+import { secret } from '../config/environment.js';
+import User from "../models/user.js";
 
-export default function secureRoute(req, res, next) {
-  console.log("secure route");
+export default async function secureRoute(req, res, next) {
   try {
-    // ? Getting the token
-    const rawToken = req.headers.authorization
-    
-    if(!rawToken) throw new Unauthorised()
+    const rawToken = req.headers.authorization;
+    if (!rawToken) throw new Unauthorized() ;
+    const token = rawToken.replace('Bearer ', '');
+    // verify token
+    const payload = jwt.verify(token, secret);
+    // get { user }
+    const user = await User.findById(payload.userId);
+    if (!user) throw new Unauthorized();
 
-    const token = rawToken.replace('Bearer ', '')
-    console.log(token)
+    // assigning { user } as local variable
+    res.locals.currentUser = user;
 
-    // ? Verifying the token
-    const payload = jwt.verify(token, secret)
-    
-
-    // ?
-
-
-    
-        
-    next()
+    next();
   } catch (err) {
     next(err);
   }

@@ -1,19 +1,64 @@
-import express from 'express'
-import Shirt from '../models/shirt.js'
+import Shirts from "../models/shirt.js";
+import { Router } from "express";
+import secureRoute from "../middleware/secureRoute.js";
+const router = Router();
 
-// import secureRoute from '../middleware/secureRoute.js'
-
-const router = express.Router()
-
-router.get('/', async function shirtIndex(_req, res, next) {
+router.get("/", async (_req, res, next) => {
   try {
-    const shirts = await Shirt.find();
-    return res.status(200).json(shirts);
+    const shirts = await Shirts.find();
+    res.status(200).json(shirts);
   } catch (err) {
     next(err);
   }
-})
+});
 
+// ! to add --- secureRoute
 
+router.get("/design", async (_req, res, next) => {
+  try {
+    const shirts = await Shirts.find();
+    res.status(200).json(shirts);
+  } catch (err) {
+    next(err);
+  }
+});
 
-export default router
+router.post("/design", secureRoute, async (req, res, next) => {
+  try {
+    const createdShirt = await Shirts.create(req.body);
+    res.status(201).json(createdShirt);
+    next();
+  } catch (error) {
+    next(err);
+  }
+});
+
+router.get("/design/wishlist", async (req, res, next) => {
+  const { ShirtId } = req.params;
+  try {
+    const foundShirt = await Shirts.findById(ShirtId);
+
+    if (!foundShirt) throw new NotFound();
+
+    return res.status(200).json(foundShirt);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.delete("/design/wishlist", secureRoute, async (req, res, next) => {
+    const { shirtId } = req.params;
+    try {
+      const shirtToDelete = await Shirts.findById(shirtId);
+
+      if (!shirtToDelete) throw new NotFound();
+
+      await shirtToDelete.deleteOne();
+      return res.sendStatus(204);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
+export default router;

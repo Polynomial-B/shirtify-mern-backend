@@ -9,10 +9,10 @@ import seedData from './seedData.js'
 async function seed() {
     // try {
       await connectToDb()
-      console.log('Database Connected 👚👕')
+      console.log('Database Connected')
   
       await truncateDb()
-      console.log('Database Dropped 👚👕')
+      console.log('Database Dropped')
   
       const adminUser = await User.create({
         username: 'admin',
