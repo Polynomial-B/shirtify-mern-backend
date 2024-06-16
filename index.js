@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url';
 import { port } from './config/environment.js';
 import shirtRouter from './controllers/shirt.js';
 import authRouter from './controllers/auth.js';
+import wishlistRouter from './controllers/wishlist.js';
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 // app.use('/', logger);
 app.use('/auth', authRouter)
 app.use('/shirts', shirtRouter);
+app.use('/wishlist', wishlistRouter);
 // app.use(errorHandler);
 
 const __filename = fileURLToPath(import.meta.url);

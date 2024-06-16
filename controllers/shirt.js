@@ -1,6 +1,9 @@
 import Shirts from "../models/shirt.js";
 import { Router } from "express";
 import secureRoute from "../middleware/secureRoute.js";
+import { NotFound } from "../lib/customErrors.js";
+import User from "../models/user.js";
+
 const router = Router();
 
 router.get("/", async (_req, res, next) => {
@@ -12,6 +15,8 @@ router.get("/", async (_req, res, next) => {
   }
 });
 
+// * GET ALL SHIRTS
+
 router.get("/design", async (_req, res, next) => {
   try {
     const shirts = await Shirts.find();
@@ -21,12 +26,20 @@ router.get("/design", async (_req, res, next) => {
   }
 });
 
+// * CREATE SHIRT
+
 router.post("/design", secureRoute, async (req, res, next) => {
   try {
     const createdShirt = await Shirts.create({
       ...req.body,
       createdBy: res.locals.currentUser._id,
     });
+
+    await User.findByIdAndUpdate(
+      res.locals.currentUser._id,
+      { $push: { wishlist: createdShirt._id } },
+      { new: true }
+    );
 
     res.status(201).json(createdShirt);
     next();
@@ -35,33 +48,46 @@ router.post("/design", secureRoute, async (req, res, next) => {
   }
 });
 
+// * FIND SHIRT BY ID
 
+router.get("/:shirtId", async (req, res, next) => {
+  const { shirtId } = req.params;
+  try {
+    const foundShirt = await Shirts.findById(shirtId);
+    if (!foundShirt) throw new NotFound();
+    res.status(200).json(foundShirt);
+  } catch (err) {
+    next(err);
+  }
+});
 
-// router.get("/wishlist", async (req, res, next) => {
-//   const { ShirtId } = req.params;
-//   try {
-//     const foundShirt = await Shirts.findById(ShirtId);
+// * DELETE SHIRT BY ID
 
-//     if (!foundShirt) throw new NotFound();
+router.delete("/:shirtId", secureRoute, async (req, res, next) => {
+  const { shirtId } = req.params;
+  try {
+    const shirtToDelete = await Shirts.findById(shirtId);
+    if (!shirtToDelete) throw new NotFound();
+    await shirtToDelete.deleteOne();
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+});
 
-//     return res.status(200).json(foundShirt);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+// * UPDATE SHIRT BY ID
 
-// router.delete("/wishlist", secureRoute, async (req, res, next) => {
-//   const { shirtId } = req.params;
-//   try {
-//     const shirtToDelete = await Shirts.findById(shirtId);
-
-//     if (!shirtToDelete) throw new NotFound();
-
-//     await shirtToDelete.deleteOne();
-//     return res.sendStatus(204);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+router.put("/:shirtId", secureRoute, async (req, res, next) => {
+  const { shirtId } = req.params;
+  try {
+    const shirtToUpdate = await Shirts.findById(shirtId);
+    if (!shirtToUpdate) throw new NotFound();
+    Object.assign(shirtToUpdate, req.body);
+    await shirtToUpdate.save();
+    res.status(202).json(shirtToUpdate);
+  } catch (err) {
+    next(err);
+  }
+});
 
 export default router;

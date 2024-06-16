@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
     email: {type: String, required: true },
     password: {type: String, required: true },
     isAdmin: {type: Boolean, required: true, default: false },
-    wishList: {type: mongoose.Schema.ObjectId, ref: "Shirt", required: false }
+    wishlist: [{type: mongoose.Schema.ObjectId, ref: "Shirt", required: false }]
 })
 
 
