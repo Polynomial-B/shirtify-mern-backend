@@ -10,7 +10,7 @@ const router = Router();
 router.get("/wishlist", async (req, res, next) => {
     try {
         const user = await User.findById(req.user._id).populate('wishlist');
-        res.status(200).json(user.wishList);
+        res.status(200).json(user.wishlist);
     } catch (err) {
         next(err);
     }
