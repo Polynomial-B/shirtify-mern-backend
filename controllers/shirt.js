@@ -37,7 +37,7 @@ router.post("/design", secureRoute, async (req, res, next) => {
 
     await User.findByIdAndUpdate(
       res.locals.currentUser._id,
-      { $push: { wishlist: createdShirt._id } },
+      { $push: { wishlist: createdShirt } },
       { new: true }
     );
 

@@ -7,9 +7,10 @@ import User from "../models/user.js";
 const router = Router();
 
 
-router.get("/wishlist", async (req, res, next) => {
+router.get("/", secureRoute, async (_req, res, next) => {
     try {
-        const user = await User.findById(req.user._id).populate('wishlist');
+        const user = await User.findById(res.locals.currentUser).populate('wishlist');
+        console.log('user ', user);
         res.status(200).json(user.wishlist);
     } catch (err) {
         next(err);

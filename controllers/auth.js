@@ -32,7 +32,7 @@ router.post('/signup', async (req, res, next) => {
 router.post('/login', async (req, res, next) => {
   try {
 
-    const user = await User.findOne({ email: req.body.email })
+    const user = await User.findOne({ username: req.body.username })
 
     if (!user) throw new Unauthorized()
 
@@ -42,7 +42,6 @@ router.post('/login', async (req, res, next) => {
     )
 
     if (!passwordsMatch) throw new Unauthorized()
-
 
     const token = jwt.sign(
       {
@@ -66,5 +65,9 @@ router.post('/login', async (req, res, next) => {
 })
 
 
-export default router
 
+
+
+
+
+export default router
