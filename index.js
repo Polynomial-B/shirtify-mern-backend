@@ -15,9 +15,9 @@ import wishlistRouter from './controllers/wishlist.js';
 const app = express();
 
 app.use(express.json());
-app.use('/auth', authRouter)
-app.use('/shirts', shirtRouter);
-app.use('/wishlist', wishlistRouter);
+app.use('/api/auth', authRouter)
+app.use('/api/shirts', shirtRouter);
+app.use('/api/wishlist', wishlistRouter);
 // app.use(errorHandler);
 
 const __filename = fileURLToPath(import.meta.url);
