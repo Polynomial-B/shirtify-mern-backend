@@ -32,6 +32,7 @@ router.post("/design", secureRoute, async (req, res, next) => {
   try {
     const createdShirt = await Shirts.create({
       ...req.body,
+      price: 15,
       createdBy: res.locals.currentUser._id,
     });
 
