@@ -11,11 +11,27 @@ router.get("/", secureRoute, async (_req, res, next) => {
     try {
         const user = await User.findById(res.locals.currentUser).populate('wishlist');
         console.log('user ', user);
+
         res.status(200).json(user.wishlist);
     } catch (err) {
         next(err);
     }
 });
+
+router.get("/:wishId", secureRoute, async (req, res, next) => {
+    const { wishId } = req.params;
+    try {
+      const foundShirt = await User.findById(res.locals.currentUser).populate(':wishId')
+
+      if (!foundShirt) throw new NotFound()
+    
+      return res.status(200).json(foundShirt);
+    } catch (err) {
+      next(err);
+    }
+  }
+)
+
 
 
 
