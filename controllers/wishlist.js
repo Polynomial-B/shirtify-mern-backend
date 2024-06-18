@@ -31,6 +31,21 @@ router.get("/:wishId", secureRoute, async (req, res, next) => {
     }
   }
 )
+router.put("/:wishId", secureRoute, async (req, res) => {
+  const { color, frontDesign, size } = req.body
+  try {
+    let shirt = await Shirts.findById(req.params.id);
+    if(!shirt) return res.status(200).json({message: 'Shirt not found'})
+    if (shirt.createdBy.toString () !== req.user.id) return res.status(401).json({message: "You are not authorized to access this resource"});
+    const foundShirt = await User.findById(res.locals.currentUser).populate(':wishId')
+
+    await shirt.remove();
+    await User.findByIdAndUpdate(req.user.id, {$pull: {wishlist: req.params.id}});
+    res.json({ message: 'Shirt deleted' });
+  } catch (err) {
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
 
 
 
