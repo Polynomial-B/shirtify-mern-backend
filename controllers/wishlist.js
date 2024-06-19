@@ -31,6 +31,7 @@ router.get("/:wishId", secureRoute, async (req, res, next) => {
     }
   }
 )
+
 router.put("/:wishId", secureRoute, async (req, res) => {
   const { color, frontDesign, size } = req.body
   try {
