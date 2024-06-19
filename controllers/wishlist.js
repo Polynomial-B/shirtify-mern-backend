@@ -21,7 +21,7 @@ router.get("/", secureRoute, async (_req, res, next) => {
 router.get("/:wishId", secureRoute, async (req, res, next) => {
     const { wishId } = req.params;
     try {
-      const foundShirt = await User.findById(res.locals.currentUser).populate(':wishId')
+      const foundShirt = await Shirts.findById(wishId)
 
       if (!foundShirt) throw new NotFound()
     
@@ -30,7 +30,7 @@ router.get("/:wishId", secureRoute, async (req, res, next) => {
       next(err);
     }
   }
-)
+);
 
 router.put("/:wishId", secureRoute, async (req, res) => {
   const { color, frontDesign, size } = req.body
