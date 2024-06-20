@@ -39,7 +39,7 @@ if(err.name === 'PasswordsNotMatching') {
 if(err.name === 'UserInfoMissing') {
     return res.status(422).json({message: "Please fill in all required fields"});
 }
-if(err.name === 'Unauthorised') {
+if(err.name === 'Unauthorized') {
     return res.status(401).json({message: "You are not authorized to access this resource"});
 }
 res.sendStatus(500);

@@ -18,7 +18,7 @@ app.use(express.json());
 app.use('/api/auth', authRouter)
 app.use('/api/shirts', shirtRouter);
 app.use('/api/wishlist', wishlistRouter);
-// app.use(errorHandler);
+app.use(errorHandler);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

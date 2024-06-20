@@ -1,7 +1,7 @@
 import Shirts from "../models/shirt.js";
 import { Router } from "express";
 import secureRoute from "../middleware/secureRoute.js";
-import { NotFound } from "../lib/customErrors.js";
+import { NotFound, Unauthorized } from "../lib/customErrors.js";
 import User from "../models/user.js";
 
 const router = Router();
@@ -69,6 +69,8 @@ router.delete("/:shirtId", secureRoute, async (req, res, next) => {
   try {
     const shirtToDelete = await Shirts.findById(shirtId);
     if (!shirtToDelete) throw new NotFound();
+    if (!shirtToDelete.createdBy.equals(res.locals.currentUser._id))
+      throw new Unauthorized();
     await shirtToDelete.deleteOne();
     res.sendStatus(204);
   } catch (err) {
@@ -92,11 +94,11 @@ router.put("/:shirtId", secureRoute, async (req, res, next) => {
 });
 
 router.post("/browse", secureRoute, async (req, res, next) => {
-  const id  = req.body.shirt._id
-  console.log("body = ", id);
+  const id = req.body.shirt._id;
+
   try {
     const browseShirt = await Shirts.findById(id);
-console.log("shirt = ", browseShirt);
+
     await User.findByIdAndUpdate(
       res.locals.currentUser._id,
       { $push: { wishlist: browseShirt } },
@@ -109,7 +111,5 @@ console.log("shirt = ", browseShirt);
     next(err);
   }
 });
-
-
 
 export default router;
