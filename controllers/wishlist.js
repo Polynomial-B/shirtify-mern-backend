@@ -48,21 +48,4 @@ router.put("/:wishId", secureRoute, async (req, res) => {
   }
 });
 
-
-
-
-// router.delete("/wishlist", secureRoute, async (req, res, next) => {
-//   const { shirtId } = req.params;
-//   try {
-//     const shirtToDelete = await Shirts.findById(shirtId);
-
-//     if (!shirtToDelete) throw new NotFound();
-
-//     await shirtToDelete.deleteOne();
-//     return res.sendStatus(204);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
-
 export default router;

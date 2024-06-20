@@ -4,7 +4,7 @@ import mongooseUniqueValidator from "mongoose-unique-validator";
 
 
 const shirtSchema = mongoose.Schema({
-    color: { type: String, enum: ["white", "black", "red", "green", "grey", "pink", "purple", "blue", "yellow"] },
+    color: { type: String, enum: ["White","Black","Red","Green","Grey","Purple","Pink","Blue","Yellow"] },
     frontDesign: {type: String, required: true },
     backDesign: {type: String, required: false }, // future implementation
     size: {type: String, required: true, enum: [ "S", "M", "L" ] },

@@ -91,4 +91,25 @@ router.put("/:shirtId", secureRoute, async (req, res, next) => {
   }
 });
 
+router.post("/browse", secureRoute, async (req, res, next) => {
+  const id  = req.body.shirt._id
+  console.log("body = ", id);
+  try {
+    const browseShirt = await Shirts.findById(id);
+console.log("shirt = ", browseShirt);
+    await User.findByIdAndUpdate(
+      res.locals.currentUser._id,
+      { $push: { wishlist: browseShirt } },
+      { new: true }
+    );
+
+    res.status(201).json(browseShirt);
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
+
+
 export default router;
