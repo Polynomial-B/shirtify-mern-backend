@@ -31,7 +31,7 @@ router.get("/:wishId", secureRoute, async (req, res, next) => {
   }
 });
 
-router.put("/:wishId", secureRoute, async (req, res) => {
+router.put("/:wishId", secureRoute, async (req, res, next) => {
   const { color, frontDesign, size } = req.body;
   try {
     let shirt = await Shirts.findById(req.params.id);
@@ -48,7 +48,7 @@ router.put("/:wishId", secureRoute, async (req, res) => {
   }
 });
 
-router.delete("/:wishId", secureRoute, async (req, res) => {
+router.delete("/:wishId", secureRoute, async (req, res, next) => {
   try {
     const user = await User.findById(res.locals.currentUser._id);
     // const shirt = await Shirts.findById();
@@ -62,9 +62,9 @@ router.delete("/:wishId", secureRoute, async (req, res) => {
       });
       return res.json({ message: 'Shirt removed from Wishlist!' });
     } else {
-      await shirtToDelete.remove();
+      await Shirts.deleteOne({ _id: shirtToDelete._id });
       return res.json({ message: 'Shirt deleted!' });
-    }
+      }
   } catch (err) {
     next(err);
   }
