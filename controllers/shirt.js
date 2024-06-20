@@ -15,8 +15,6 @@ router.get("/", async (_req, res, next) => {
   }
 });
 
-// * GET ALL SHIRTS
-
 router.get("/design", async (_req, res, next) => {
   try {
     const shirts = await Shirts.find();
@@ -26,7 +24,7 @@ router.get("/design", async (_req, res, next) => {
   }
 });
 
-// * CREATE SHIRT
+
 
 router.post("/design", secureRoute, async (req, res, next) => {
   try {
@@ -49,8 +47,6 @@ router.post("/design", secureRoute, async (req, res, next) => {
   }
 });
 
-// * FIND SHIRT BY ID
-
 router.get("/:shirtId", async (req, res, next) => {
   const { shirtId } = req.params;
   try {
@@ -61,8 +57,6 @@ router.get("/:shirtId", async (req, res, next) => {
     next(err);
   }
 });
-
-// * DELETE SHIRT BY ID
 
 router.delete("/:shirtId", secureRoute, async (req, res, next) => {
   const { shirtId } = req.params;
@@ -77,8 +71,6 @@ router.delete("/:shirtId", secureRoute, async (req, res, next) => {
     next(err);
   }
 });
-
-// * UPDATE SHIRT BY ID
 
 router.put("/:shirtId", secureRoute, async (req, res, next) => {
   const { shirtId } = req.params;
