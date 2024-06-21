@@ -8,7 +8,7 @@ export default [
         },
         {
             "color": "Black",
-            "frontDesign": "https://purepng.com/public/uploads/large/purepng.com-carrotscarrotvegetablesfreshdeliciousefoodhealthycarrots-481521740717jmglq.png",
+            "frontDesign": "https://cdn.pixabay.com/photo/2023/10/24/18/11/luna-moth-8338838_1280.png",
             "backDesign": "",
             "size": "M",
             "price": 15
@@ -71,14 +71,14 @@ export default [
         },
         {
             "color": "Black",
-            "frontDesign": "https://peppermaremma.it/wp-content/uploads/2023/04/carolina-reaper-piccantezza-atomica-1.png",
+            "frontDesign": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/I-95.svg/1200px-I-95.svg.png",
             "backDesign": "",
             "size": "M",
             "price": 15
         },
         {
             "color": "Red",
-            "frontDesign": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpng.pngtree.com%2Fpng-clipart%2F20220130%2Foriginal%2Fpngtree-a-magpie-png-transparent-layer-material-png-image_7241902.png&f=1&nofb=1&ipt=725a735de0ed2860ee15920d344fe41c5d2c59c8df100301a17e65454f7b9409&ipo=images",
+            "frontDesign": "https://images.squarespace-cdn.com/content/v1/5f779199e51daa4491d31e9f/1601673094624-S3E1RUEDPTRQ6XD2TKIW/454.png?format=1500w",
             "backDesign": "",
             "size": "M",
             "price": 15
@@ -92,14 +92,14 @@ export default [
         },
         {
             "color": "Grey",
-            "frontDesign": "https://www.pngmart.com/files/7/Spinosaurus-Transparent-Images-PNG.png",
+            "frontDesign": "https://mir-s3-cdn-cf.behance.net/project_modules/disp/d7daf553686467.593dc7091728d.png",
             "backDesign": "",
             "size": "M",
             "price": 15
         },
         {
-            "color": "Purple",
-            "frontDesign": "http://analogicalplanet.com/ftp/PohliaNutans.Hi.80.3008.jpg",
+            "color": "Black",
+            "frontDesign": "https://d10j3mvrs1suex.cloudfront.net/s:bzglfiles/u/312076/816bb18dd9ab005869e18c5028eaea2adfc268e2/original/wittr-logo-2020-gray.png/!!/b:W1sicmVzaXplIiwxMDAwXSxbIm1heCJdLFsid2UiXV0%3D/meta:eyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.png",
             "backDesign": "",
             "size": "M",
             "price": 15
@@ -119,7 +119,7 @@ export default [
             "price": 15
         },
         {
-            "color": "Yellow",
+            "color": "Red",
             "frontDesign": "https://dejpknyizje2n.cloudfront.net/svgcustom/clipart/preview/scared-cat-sticker-13212-20789-550x550.png",
             "backDesign": "",
             "size": "M",
@@ -182,7 +182,7 @@ export default [
             "price": 15
         },
         {
-            "color": "Yellow",
+            "color": "Pink",
             "frontDesign": "https://www.pngall.com/wp-content/uploads/5/Cupcake-PNG-Image-HD.png",
             "backDesign": "",
             "size": "M",
@@ -211,7 +211,7 @@ export default [
         },
         {
             "color": "Black",
-            "frontDesign": "https://simkl.in/episodes/58/585848599b56b527_w.jpg",
+            "frontDesign": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e93232ed-631c-4406-8f2e-afd80402d397/d3a0jnv-ada684ba-5aa7-4146-bb4b-99c37270a644.png/v1/fill/w_900,h_895,q_75,strp/vault_boy_by_craig_38-d3a0jnv.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi9lOTMyMzJlZC02MzFjLTQ0MDYtOGYyZS1hZmQ4MDQwMmQzOTcvZDNhMGpudi1hZGE2ODRiYS01YWE3LTQxNDYtYmI0Yi05OWMzNzI3MGE2NDQucG5nIiwid2lkdGgiOiI8PTkwMCIsImhlaWdodCI6Ijw9ODk1In1dXX0.Ho6pnblYJ7iKGzHUAWGZleCNEG-UWZoQXraDnaLF7Qo",
             "backDesign": "",
             "size": "M",
             "price": 15
@@ -225,7 +225,7 @@ export default [
         },
         {
             "color": "Purple",
-            "frontDesign": "https://wiki.starbase118.net/wiki/images/e/e8/Weights.png",
+            "frontDesign": "https://media.vogue.fr/photos/63c563d8f6812421020aad64/master/w_1280%2Cc_limit/shutterstock_editorial_126091b.jpg",
             "backDesign": "",
             "size": "M",
             "price": 15
@@ -245,12 +245,47 @@ export default [
             "price": 15
         },
         {
-            "color": "White",
-            "frontDesign": "https://www.numberone.com.tr/wp-content/uploads/2017/08/N1_TR_BarisManco.png",
+            "color": "Purple",
+            "frontDesign": "https://images6.alphacoders.com/415/415232.jpg",
             "backDesign": "",
             "size": "M",
             "price": 15
         },
+        {
+            "color": "Purple",
+            "frontDesign": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/97475818-d5c8-489c-ac4c-78a19898cefb/d6wn40g-7a4f003d-287d-4d4c-88f7-f74f58171708.png/v1/fill/w_1280,h_955,q_75,strp/my_neighbor_totoro_vector_by_firedragonmatty-d6wn40g.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi85NzQ3NTgxOC1kNWM4LTQ4OWMtYWM0Yy03OGExOTg5OGNlZmIvZDZ3bjQwZy03YTRmMDAzZC0yODdkLTRkNGMtODhmNy1mNzRmNTgxNzE3MDgucG5nIiwid2lkdGgiOiI8PTEyODAiLCJoZWlnaHQiOiI8PTk1NSJ9XV19.FeME4CUZiBd5rXu_eB_drsWNCZN-YhPGZU9z4-Ust_U",
+            "backDesign": "",
+            "size": "M",
+            "price": 15
+        },
+        {
+            "color": "Yellow",
+            "frontDesign": "https://cdn-icons-png.flaticon.com/512/2946/2946171.png",
+            "backDesign": "",
+            "size": "M",
+            "price": 15
+        },
+        {
+            "color": "Yellow",
+            "frontDesign": "https://sendomatic.com/sendo7/web/web/images/design-assets/happy.png",
+            "backDesign": "",
+            "size": "M",
+            "price": 15
+        },
+        {
+            "color": "Grey",
+            "frontDesign": "https://www.pinclipart.com/picdir/big/522-5225309_clipart-flashlight-png-download.png",
+            "backDesign": "",
+            "size": "M",
+            "price": 15
+        },
+        {
+            "color": "Pink",
+            "frontDesign": "https://cdn.unifiedcommerce.com/content/product/large/819844012366-L.jpg",
+            "backDesign": "",
+            "size": "M",
+            "price": 15
+        },
+        
     ];
     
-
