@@ -1,8 +1,8 @@
 import 'dotenv/config';
 
 
-import { connectToDb } from './db/helpers.js';
-import errorHandler from './middleware/errorHandling.js';
+import { connectToDb } from '../../db/helpers.js';
+import errorHandler from '../../middleware/errorHandling.js';
 import express from 'express';
 import shirtRouter from '../../controllers/shirt.js';
 import authRouter from '../../controllers/auth.js';
