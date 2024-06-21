@@ -1,6 +1,4 @@
 import 'dotenv/config';
-
-
 import { connectToDb } from '../../db/helpers.js';
 import errorHandler from '../../middleware/errorHandling.js';
 import express from 'express';
@@ -8,8 +6,8 @@ import shirtRouter from '../../controllers/shirt.js';
 import authRouter from '../../controllers/auth.js';
 import wishlistRouter from '../../controllers/wishlist.js';
 
-import cors from 'cors'
-import serverless from "serverless-http"
+import cors from 'cors';
+import serverless from "serverless-http";
 
 
 const app = express();
@@ -36,4 +34,4 @@ async function startServer() {
 
 startServer();
 
-export const handler = serverless(app)
+export const handler = serverless(app);
