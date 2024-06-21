@@ -6,7 +6,6 @@ import { connectToDb } from './db/helpers.js';
 import errorHandler from './middleware/errorHandling.js';
 import express from 'express';
 import { fileURLToPath } from 'url';
-// import logger from './middleware/logger.js';
 import { port } from './config/environment.js';
 import shirtRouter from './controllers/shirt.js';
 import authRouter from './controllers/auth.js';

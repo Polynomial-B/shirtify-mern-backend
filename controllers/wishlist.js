@@ -51,7 +51,6 @@ router.put("/:wishId", secureRoute, async (req, res, next) => {
 router.delete("/:wishId", secureRoute, async (req, res, next) => {
   try {
     const user = await User.findById(res.locals.currentUser._id);
-    // const shirt = await Shirts.findById();
     const shirtToDelete = await Shirts.findById(req.params.wishId);
 
     if (!user) throw new Unauthorized();

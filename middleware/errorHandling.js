@@ -1,9 +1,7 @@
 import { NotFound, AlreadyExists, UsernameExists, EmailExists, PasswordsNotMatching,UserInfoMissing, Unauthorized } from '../lib/customErrors.js'
 
 export default function errHandler (err, _req, res, next) {
-    console.log(`🤖 Oops! Something went wrong`);
-    console.log(`Error: ${err.name}`);
-    console.log(err.stack);
+   
 
     if (err.name === "NotFound" || err.name === 'CastError') {
         return res.status(404).json({ message: 'Oops! THe requested resource was not found.'})
@@ -11,8 +9,6 @@ export default function errHandler (err, _req, res, next) {
 
 
 if (err.name === 'ValidationError') {
-    console.log(`Validation Error: ${err.name}`);
-    console.log(err);
     const validationErrors = {};
 
     for (const key in err.errors) {
@@ -25,7 +21,6 @@ if(err.name === 'AlreadyExists') {
     return res.status(400).json({message: "Sorry, this ite already exists. Please choose another"});
 }
 
-// ! for security maybe we should use a generic 'not authorised' message ?
 
 if(err.name === 'UsernameExists') {
     return res.status(400).json({message: "This username is already taken. Please try another one"});
