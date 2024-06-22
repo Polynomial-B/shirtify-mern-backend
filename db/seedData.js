@@ -274,14 +274,14 @@ export default [
         },
         {
             "color": "Grey",
-            "frontDesign": "https://www.pinclipart.com/picdir/big/522-5225309_clipart-flashlight-png-download.png",
+            "frontDesign": "https://www.pngmart.com/files/17/Vector-Kitten-PNG-Image.png",
             "backDesign": "",
             "size": "M",
             "price": 15
         },
         {
             "color": "Pink",
-            "frontDesign": "https://cdn.unifiedcommerce.com/content/product/large/819844012366-L.jpg",
+            "frontDesign": "https://www.pngmart.com/files/22/Leo-Zodiac-PNG-Isolated-HD.png",
             "backDesign": "",
             "size": "M",
             "price": 15
